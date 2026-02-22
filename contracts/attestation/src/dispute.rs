@@ -1,5 +1,5 @@
 //! Dispute management module for attestation challenges
-use soroban_sdk::{contracttype, Address, BytesN, Env, String, Vec};
+use soroban_sdk::{contracttype, Address, Env, String, Vec};
 
 /// Status of a dispute
 #[derive(Clone, Debug, PartialEq)]
@@ -205,7 +205,7 @@ pub fn validate_dispute_eligibility(
 pub fn validate_dispute_resolution(
     env: &Env,
     dispute_id: u64,
-    resolver: &Address,
+    _resolver: &Address,
 ) -> Result<Dispute, &'static str> {
     let dispute = get_dispute(env, dispute_id).ok_or("dispute not found")?;
 
